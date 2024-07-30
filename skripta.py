@@ -1,5 +1,4 @@
 import time
-import pandas
 from metaflow import step, FlowSpec
 
 class HelloWorld(FlowSpec):
