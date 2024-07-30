@@ -1,0 +1,4 @@
+{
+    "METAFLOW_DEFAULT_METADATA": "service",
+    "METAFLOW_SERVICE_URL": "http://localhost:8080/"
+}

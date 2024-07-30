@@ -7,6 +7,8 @@ WORKDIR /app
 # Copy the requirements file into the container
 COPY requirements.txt .
 
+ENV USERNAME jnk
+
 # Install the required packages
 RUN pip3 install -Ur requirements.txt
 

@@ -3,4 +3,4 @@ services:
   eksperiment:
     build: 
       context: .
-    command: python3 skripta.py
+    command: python3 skripta.py run
