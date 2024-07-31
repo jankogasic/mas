@@ -1,7 +1,7 @@
-import time
 from metaflow import step, FlowSpec
 
 class HelloWorld(FlowSpec):
+    
     @step
     def start(self):
         self.data = "Hello World"
