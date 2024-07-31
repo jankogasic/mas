@@ -1,6 +1,6 @@
 version: "3.3"
 services:
   eksperiment:
-    build: 
-      context: .
+    platform: linux/amd64
+    image: jnkql/mas:latest
     command: python3 skripta.py run
