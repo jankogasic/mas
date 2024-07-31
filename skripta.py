@@ -1,7 +1,7 @@
-'''Module docstring'''
+"""Module docstring"""
 from metaflow import step, FlowSpec
 
-'''Class docstring'''
+"""Class docstring"""
 class HelloWorld(FlowSpec):
     @step
     def start(self):
