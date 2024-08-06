@@ -4,13 +4,54 @@ import time
 class ForeachFlow(FlowSpec):
     @step
     def start(self):
-        self.titles = ["Stranger Things", "House of Cards", "Narcos","Aaa","Bbbb","Ddddd","Cccc","Eeee","Fffff","Gggg"]
+        self.titles = [
+            "apple",
+            "banana",
+            "cherry",
+            "date",
+            "elderberry",
+            "fig",
+            "grape",
+            "honeydew",
+            "kiwi",
+            "lemon",
+            "mango",
+            "nectarine",
+            "orange",
+            "papaya",
+            "quince",
+            "raspberry",
+            "strawberry",
+            "tangerine",
+            "ugli fruit",
+            "violet",
+            "watermelon",
+            "xigua",
+            "yellow watermelon",
+            "zucchini",
+            "apricot",
+            "blackberry",
+            "cantaloupe",
+            "dragonfruit",
+            "eggplant",
+            "feijoa",
+            "grapefruit",
+            "huckleberry",
+            "jackfruit",
+            "kumquat",
+            "lime",
+            "mulberry",
+            "olive",
+            "peach",
+            "pomegranate",
+            "rhubarb",
+        ]
         self.next(self.a, foreach="titles")
 
     @step
     def a(self):
-        self.title = "%s processed" % self.input
         time.sleep(5)
+        self.title = "%s processed" % self.input
         self.next(self.join)
 
     @step
