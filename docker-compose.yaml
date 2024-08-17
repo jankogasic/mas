@@ -1,9 +1,10 @@
 version: "3.3"
 services:
   eksperiment:
-    build: .
+    platform: "linux/x86_64"
+    # build: .
+    image: jnkql/mas
     volumes:
       - ./data/fasttext:/app/data/fasttext
       - ./models:/app/models 
-    # command: sleep 2000
     command: python3 /app/fasttextmf.py run
