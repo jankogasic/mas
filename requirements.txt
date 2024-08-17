@@ -1,2 +1,10 @@
-pandas==2.2.0
-metaflow==2.12.9
+numpy
+pandas
+nltk
+scikit-learn
+matplotlib
+metaflow
+fasttext
+fasttext-wheel
+text-preprocessing
+spacy

@@ -1,6 +1,9 @@
 version: "3.3"
 services:
   eksperiment:
-    platform: linux/amd64
-    image: jnkql/mas:latest
-    command: python3 skripta.py run
+    build: .
+    volumes:
+      - ./data/fasttext:/app/data/fasttext
+      - ./models:/app/models 
+    # command: sleep 2000
+    command: python3 /app/fasttextmf.py run
