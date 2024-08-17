@@ -193,7 +193,7 @@ class HelloFlow(FlowSpec):
         print(self.X_test.loc[0,"sentiment"])
 
         # provera accuracy
-        print(f"Accuracy:  {(self.X_test["prediction"] == self.X_test["sentiment"]).sum() / self.X_test.shape[0] * 100}" )
+        print(f'''Accuracy:  {(self.X_test["prediction"] == self.X_test["sentiment"]).sum() / self.X_test.shape[0] * 100}''')
 
         print("INFO: model evaluated")
         self.next(self.end)
