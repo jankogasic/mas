@@ -75,8 +75,8 @@ class HelloFlow(FlowSpec):
     @step
     def load_data(self):
 
-        # self.df = pd.read_csv("data/fasttext/movie_data.csv")
-        # print(self.df.shape)
+        self.df = pd.read_csv("data/fasttext/movie_data.csv")
+        print(self.df.shape)
 
         print("INFO: data loaded")
         self.next(self.clean_data)
@@ -84,16 +84,16 @@ class HelloFlow(FlowSpec):
     @step
     def clean_data(self):
 
-        # spacy.cli.download("en_core_web_sm")
-        # load_spacy_model = spacy.load("en_core_web_sm", disable=["parser", "ner"])
+        spacy.cli.download("en_core_web_sm")
+        load_spacy_model = spacy.load("en_core_web_sm", disable=["parser", "ner"])
 
-        # print(self.df.loc[0, 'review'])
+        print(self.df.loc[0, 'review'])
 
-        # # processing each review into a list of stemmed tokens
-        # self.df["review_processed"] = self.df["review"].apply(
-        #     lambda x: clean_data(x, load_spacy_model)
-        # )
-        # self.df.to_csv("data/fasttext/clean_movie_data.csv", index=False)
+        # processing each review into a list of stemmed tokens
+        self.df["review_processed"] = self.df["review"].apply(
+            lambda x: clean_data(x, load_spacy_model)
+        )
+        self.df.to_csv("data/fasttext/clean_movie_data.csv", index=False)
 
         print("INFO: data cleaned and saved")
         self.next(self.transform_data)
@@ -101,7 +101,7 @@ class HelloFlow(FlowSpec):
     @step
     def transform_data(self):
 
-        self.df = pd.read_csv("data/fasttext/clean_movie_data.csv")
+        # self.df = pd.read_csv("data/fasttext/clean_movie_data.csv")
         print(self.df.shape)
 
         X = self.df['review_processed']
@@ -159,7 +159,7 @@ class HelloFlow(FlowSpec):
         model = fasttext.train_supervised(
             input="data/fasttext/train.csv",
             autotuneValidationFile="data/fasttext/val.csv",
-            autotuneDuration=30 * 1,
+            autotuneDuration=300 * 1,
         )
 
         model.save_model("models/fasttext_model.bin")
