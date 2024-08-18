@@ -9,8 +9,8 @@ import pandas as pd
 import spacy
 import spacy.cli
 from metaflow import FlowSpec, step
-# from nltk.stem import PorterStemmer
-# from nltk.tokenize import word_tokenize
+from nltk.stem import PorterStemmer
+from nltk.tokenize import word_tokenize
 from sklearn.model_selection import train_test_split
 from text_preprocessing import (
     # check_spelling,
@@ -23,7 +23,8 @@ from text_preprocessing import (
     remove_stopword,
     to_lower,
 )
-
+import nltk
+nltk.download("wordnet")
 import logging
 
 def clean_data(text_pro, load_spacy_model):
